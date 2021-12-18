@@ -15,6 +15,7 @@ urlpatterns = [
 localhost:8000/youtubesearchapi/search/ is the api url where we can get all 
 the youtube videos we have stored in backend after fetching from youtube data 
 api v3 displayed as a paginated response.
+
 localhost:8000/youtubesearchapi/filterbydate/ is the api url which will fetch the
 filtered data by date displayed as a paginated response.
 
