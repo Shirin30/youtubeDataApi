@@ -4,25 +4,37 @@ from rest_framework.generics import ListAPIView
 from youtubesearch.models import YoutubeData
 from youtubesearch.serializers import YoutubeDataSerializer
 
+"""
+FilterByDateAPIView filters the queryset by date range as requested by the user.
+it also orders the data by default descending by publishedAt but 
+ascending or descending as requested by the user.
 
+"""
 
 
 class FilterByDateAPIView(ListAPIView):
     queryset = YoutubeData.objects.all()
     serializer_class = YoutubeDataSerializer
+
     def get_queryset(self):
-    
+
         startdate = self.request.query_params.get('startdate', None)
         enddate = self.request.query_params.get('enddate', None)
-        order = self.request.query_params.get('order',None)
-        print(startdate,enddate)
+        order = self.request.query_params.get('order', None)
+        print(startdate, enddate)
         if(order == None or order == 'descending'):
             orderby = '-publishedAt'
         else:
             orderby = 'publishedAt'
-        # return self.queryset.filter(publishedAt__range=['2020-12-17','2020-12-18'])
-        
-        return self.queryset.filter(publishedAt__range=[startdate,enddate]).order_by(orderby)
+
+        return self.queryset.filter(publishedAt__range=[startdate, enddate]).order_by(orderby)
+
+"""
+YoutubeDataAPI stores the data retrieved from youtube data api v3 according to query 'marvel' 
+and stores in the database. returns ordered data descending by published data by default. 
+but orders according to request from user.
+
+"""
 
 class YoutubeDataAPI(ListAPIView):
     queryset = YoutubeData.objects.all()
@@ -69,7 +81,7 @@ class YoutubeDataAPI(ListAPIView):
                 pass
 
     def get_queryset(self):
-        order = self.request.query_params.get('order',None)
+        order = self.request.query_params.get('order', None)
         if(order == None or order == 'descending'):
             orderby = '-publishedAt'
         else:

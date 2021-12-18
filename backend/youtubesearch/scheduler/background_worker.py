@@ -1,6 +1,11 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 from youtubesearch.views import YoutubeDataAPI
 
+"""
+background worker that keeps fetching data and storing in database with a
+10 second gap, asynchronously in background.
+"""
+
 def begin():
   data = YoutubeDataAPI() 
   background_sch = BackgroundScheduler()
