@@ -54,4 +54,4 @@ Income Expenses API
 
 10. Run react server using `npm run start`
 
-11. Go to ![http://localhost:3000/](http://localhost:3000/) to view the website
+11. Go to http://localhost:3000/ to view the website
