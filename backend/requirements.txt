@@ -49,4 +49,5 @@ uritemplate==3.0.1
 urllib3==1.25.9
 django-taggit==2.0.0
 django-taggit-serializer==0.1.7
+apscheduler==3.8.1
 

@@ -3,10 +3,8 @@ import YoutubeDataCards from './Components/YoutubeDataCard/YoutubeDataCards';
 
 function App() {
   return (
-    <div className="App" style={{backgroundColor: '#212F3D'}}>
-    
+    <div className="App" style={{backgroundColor: '#212F3D'}}>  
       <YoutubeDataCards />
-
     </div>
   );
 }
