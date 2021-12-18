@@ -147,6 +147,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
+"""
 
-YOUTUBE_DATA_API_KEY = "AIzaSyDL7XyIeuzwV1DJcqnu54lHewAX2_-zWao"
-YOUTUBE_DATA_API_KEY_1="AIzaSyBUQHxwSDvOk8v6_TTih7aSZZysiVOtato"
+We define a list of API keys for handling limit exceeded of requests, heree i have used two but
+more can be used. 
+"""
+YOUTUBE_DATA_API_KEY_LIST = ["AIzaSyDL7XyIeuzwV1DJcqnu54lHewAX2_-zWao","AIzaSyBUQHxwSDvOk8v6_TTih7aSZZysiVOtato"]

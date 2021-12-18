@@ -5,7 +5,6 @@ import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import Dropdown from 'muicss/lib/react/dropdown';
 import DropdownItem from 'muicss/lib/react/dropdown-item';
-
 const YoutubeDataCards = () => {
     // apiURL for fetching the data stored in the database.
     const apiURL = 'http://localhost:8000/youtubesearchapi/search/'
@@ -23,7 +22,7 @@ const YoutubeDataCards = () => {
 
     // GET fileredapiURL query result stored in filtereddata state
     const [filtereddata, setFiltereddata] = useState();
-
+    const [total, setTotal] = useState([]);
     // start date, end date and order (ascending/descending) for query parameters
     const [startdate, setstartdate] = useState();
     const [enddate, setenddate] = useState();
@@ -36,6 +35,7 @@ const YoutubeDataCards = () => {
             .then(res => {
                 console.log(res.data.results)
                 const data = res.data.results
+                setTotal(data)
                 const slice = data.slice(offset, offset + perPage)
                 const postData = slice
 
@@ -78,9 +78,9 @@ const YoutubeDataCards = () => {
 
     // here all the unique publishing dates are stored in a list so that we can filter data using a range of publishing dates
     var publishingdates = []
-    if (youtubedatacards.length != 0) {
-        for (var i = 0; i < youtubedatacards.length; i++) {
-            var x = youtubedatacards[i].publishedAt
+    if (total.length != 0) {
+        for (var i = 0; i < total.length; i++) {
+            var x = total[i].publishedAt
             if (!publishingdates.includes(x.substring(0, 10))) {
                 publishingdates.push(x.substring(0, 10))
             }
