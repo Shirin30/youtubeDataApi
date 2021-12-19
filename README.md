@@ -28,9 +28,6 @@ Pagination is implemented in both DRF and React.
 Support for multiple API keys is also added so that if the limit is reached on one, it automatically shifts to the other API key.
 
 
-#Installation Steps:
-
-Income Expenses API
 
 ## Installation steps
 
